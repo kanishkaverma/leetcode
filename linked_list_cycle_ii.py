@@ -1,6 +1,3 @@
-# Definition for singly-linked list.
-from typing import List
-
 
 class ListNode:
     def __init__(self, x):
@@ -13,10 +10,10 @@ class Solution:
         if head == None or head.next == None:
             return -1
         slow, fast = head, head
-        while fast is not None and fast.next.next is not None:
+        while fast is not None and fast.next is not None:
             slow = slow.next
             fast = fast.next.next
-            if (slow.val == fast.val):
+            if (slow == fast):
                 return self.get_cycle_length_helper(slow)
         return -1
 
@@ -50,7 +47,7 @@ class Solution:
                 pointer1 = pointer1.next
                 pointer2 = pointer2.next
 
-    
+
 def main():
 
     head = ListNode(3)
