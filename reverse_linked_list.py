@@ -14,12 +14,14 @@ class Node:
 def reverse(head): 
     prev = None 
     curr,nxt = head, head.next 
-    while(nxt is not None): 
+    while(True): 
         curr.next = prev 
+        if (nxt is None): 
+            break 
         prev= curr 
         curr = nxt
         nxt = nxt.next
-    curr.next = prev 
+    # curr.next = prev 
 
 
     return curr
