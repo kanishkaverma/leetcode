@@ -39,3 +39,28 @@ def main( ):
     print(f"level order transversal: {str(traverse(root))}")
 
 main()
+
+
+def traverse(root): 
+    result = [ ]
+    if root is None: 
+        return root 
+    queue = Deque()
+    queue.append(root)
+
+    while queue: 
+        level_size = len(queue)
+        level = []
+        for x in range(level_size): 
+            current_node = queue.popleft()
+            queue.append(current_node.val)
+
+            if current_node.left: 
+                queue.append(current_node.left
+                )
+            if current_node.right: 
+                queue.append(current_node.right)
+
+        result.append(level)
+
+    return result 
